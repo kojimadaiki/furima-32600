@@ -58,7 +58,7 @@ belongs_to :user
 | telephone_number    | string     | null: false       |
 | prefecture_id       | integer    | null: false       |
 | municipality        | string     | null: false       |
-| address_number      | integer    | null: false       |
+| address_number      | string     | null: false       |
 | postal_code         | string     | null: false       |
 | apartment           | string     |                   |
 | purchase            | references | foreign_key: true |
