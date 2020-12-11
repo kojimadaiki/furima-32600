@@ -9,25 +9,26 @@
 | full_firstname     | string  | nill: false               |
 | kana_lastname      | string  | nill: false               |
 | kana_firstname     | string  | nill: false               |
-| birth_date         | integer | nill: false               |
+| birth_date         | date    | nill: false               |
 
 
 ### Association
 has_many :items
-has_many :purchase
+has_many :purchases
 
 
 ## item
 
-| Column         | Type    | Options     |
-| -------------- | ------  | ----------- |
-| image          | string  | null: false |
-| item_name      | string  | nill :false |
-| item_category  | integer | nill: false |
-| delivery_fee   | integer | nill: false |
-| shipping_place | integer | nill: false |
-| shipping_date  | integer | nill: false |
-| price          | integer | nill: false |
+| Column            | Type    | Options     |
+| ----------------- | ------  | ----------- |
+| item_name         | string  | nill :false |
+| item_explain      | integer | nill: false |
+| item_category_id  | integer | nill: false |
+| item_status_id    | string  | nill :false |
+| delivery_fee_id   | integer | nill: false |
+| shipping_place_id | integer | nill: false |
+| shipping_date_id  | integer | nill: false |
+| price             | integer | nill: false |
 
 
 ### Association
@@ -44,22 +45,22 @@ has_one :purchase
 
 
 ### Association
-has_one :address
-has_one :item
+has_one    :address
+belongs_to :item
 belongs_to :user
 
 
 ## address
 
-| Column           | Type    | Options     |
-| ---------------- | ------- | ----------- |
-| telephone_number | integer | nill: false |
-| prefecture       | integer | nill: false |
-| municipality     | string  | nill: false |
-| address_number   | integer | nill: false |
-| postal_code      | integer | nill: false |
-| apartment        | string  |             |
+| Column              | Type    | Options     |
+| ------------------- | ------- | ----------- |
+| telephone_number    | integer | nill: false |
+| prefecture_id       | integer | nill: false |
+| municipality        | string  | nill: false |
+| address_number      | integer | nill: false |
+| postal_code         | integer | nill: false |
+| apartment           | string  |             |
 
 
 ### Association
-has_one :purchase
+belongs_to :purchase
