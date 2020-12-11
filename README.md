@@ -3,13 +3,13 @@
 | Column             | Type    | Options                   |
 | ------------------ | ------- | ------------------------- |
 | name               | string  | null: false               |
-| email              | string  | nill :false, unique: true |
-| encrypted_password | string  | nill: false               |
-| full_lastname      | string  | nill: false               |
-| full_firstname     | string  | nill: false               |
-| kana_lastname      | string  | nill: false               |
-| kana_firstname     | string  | nill: false               |
-| birth_date         | date    | nill: false               |
+| email              | string  | null: false, unique: true |
+| encrypted_password | string  | null: false               |
+| full_lastname      | string  | null: false               |
+| full_firstname     | string  | null: false               |
+| kana_lastname      | string  | null: false               |
+| kana_firstname     | string  | null: false               |
+| birth_date         | date    | null: false               |
 
 
 ### Association
@@ -21,14 +21,14 @@ has_many :purchases
 
 | Column            | Type       | Options           |
 | ----------------- | ---------  | ----------------- |
-| name              | string     | nill :false       |
-| explain           | string     | nill: false       |
-| category_id       | integer    | nill: false       |
-| status_id         | integer    | nill :false       |
-| delivery_fee_id   | integer    | nill: false       |
-| shipping_place_id | integer    | nill: false       |
-| shipping_date_id  | integer    | nill: false       |
-| price             | integer    | nill: false       |
+| name              | string     | null: false       |
+| explain           | text       | null: false       |
+| category_id       | integer    | null: false       |
+| status_id         | integer    | null: false       |
+| delivery_fee_id   | integer    | null: false       |
+| prefecture_id     | integer    | null: false       |
+| shipping_date_id  | integer    | null: false       |
+| price             | integer    | null: false       |
 | user              | references | foreign_key: true |
 
 
@@ -55,11 +55,11 @@ belongs_to :user
 
 | Column              | Type       | Options           |
 | ------------------- | ---------- | ----------------- |
-| telephone_number    | string     | nill: false       |
-| prefecture_id       | integer    | nill: false       |
-| municipality        | string     | nill: false       |
-| address_number      | integer    | nill: false       |
-| postal_code         | string     | nill: false       |
+| telephone_number    | string     | null: false       |
+| prefecture_id       | integer    | null: false       |
+| municipality        | string     | null: false       |
+| address_number      | integer    | null: false       |
+| postal_code         | string     | null: false       |
 | apartment           | string     |                   |
 | purchase            | references | foreign_key: true |
 
