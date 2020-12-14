@@ -6,8 +6,8 @@ class User < ApplicationRecord
 
   with_options presence: true do
   validates :name
-  validates :full_lastname, format: { with: /\A[^ -~｡-ﾟ]+\z/, message: 'Full-width characters' }
-  validates :full_firstname, format: { with: /\A[^ -~｡-ﾟ]+\z/, message: 'Full-width characters' }
+  validates :full_lastname, format: { with: /\A[^ -~｡-ﾟ]+\z/, message: 'Full-width chinese characters' }
+  validates :full_firstname, format: { with: /\A[^ -~｡-ﾟ]+\z/, message: 'Full-width chinese characters' }
   validates :kana_lastname, format: { with: /\p{katakana}/, message: 'Full-width katakana characters' }
   validates :kana_firstname, format: { with: /\p{katakana}/, message: 'Full-width katakana characters' }
   validates :birth_date
