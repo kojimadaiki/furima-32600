@@ -10,4 +10,6 @@ class Item < ApplicationRecord
     validates: shipping_date_id
     validates: price, format: { with: /\A[0-9]+\z/, message: '' }
 
+    has_one_attached :image
+
 end
