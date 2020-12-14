@@ -11,6 +11,11 @@ class Item < ApplicationRecord
     validates :price, format: { with: /\A[0-9]+\z/, message: '' }
   end
 
-    has_one_attached :image
+  has_one_attached :image
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :category
+
+  validates :category_id, numericality: { other_than: 1 } 
 
 end
