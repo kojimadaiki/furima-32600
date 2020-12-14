@@ -92,7 +92,7 @@ describe User do
       end
 
       it 'full_lastnameが漢字でない' do
-        @user.full_lastname = ''
+        @user.full_lastname = 'kenji'
         @user.valid?
         expect(@user.errors.full_messages).to include('Full lastname Full-width chinese characters')
       end
@@ -104,7 +104,7 @@ describe User do
       end
 
       it 'kana_firstnameがカタカナでない' do
-        @user.kana_firstname = ''
+        @user.kana_firstname = 'tanaka'
         @user.valid?
         expect(@user.errors.full_messages).to include('Kana firstname Full-width katakana characters')
       end
@@ -116,7 +116,7 @@ describe User do
       end
 
       it 'kana_lastnameがカタカナでない' do
-        @user.kana_lastname = ''
+        @user.kana_lastname = 'hiro'
         @user.valid?
         expect(@user.errors.full_messages).to include('Kana lastname Full-width katakana characters')
       end
