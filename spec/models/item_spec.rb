@@ -37,10 +37,22 @@ describe Item do
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
+      it 'category_idが空の時' do
+        @item.category_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category can't be blank")
+      end
+
       it 'status_idが1の時' do
         @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Status must be other than 1')
+      end
+
+      it 'status_idが空の時' do
+        @item.status_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Status can't be blank")
       end
 
       it 'delivery_fee_idが1の時' do
@@ -49,16 +61,34 @@ describe Item do
         expect(@item.errors.full_messages).to include('Delivery fee must be other than 1')
       end
 
+      it 'delivery_fee_idが空の時' do
+        @item.delivery_fee_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Delivery fee can't be blank")
+      end
+
       it 'prefecture_idが1の時' do
         @item.prefecture_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Prefecture must be other than 1')
       end
 
+      it 'prefecture_idが空の時' do
+        @item.prefecture_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
+      end
+
       it 'shipping_date_idが1の時' do
         @item.shipping_date_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipping date must be other than 1')
+      end
+
+      it 'shipping_date_idが空の時' do
+        @item.shipping_date_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Shipping date can't be blank")
       end
 
       it 'priceが空の時' do
@@ -92,7 +122,7 @@ describe Item do
       end
 
       it 'priceが全角数字の時' do
-        @item.price = １９９９
+        @item.price = '１９９９'
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not number')
       end
