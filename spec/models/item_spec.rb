@@ -74,13 +74,13 @@ describe Item do
       end
 
       it 'priceが300円から9999999円でない時' do
-        @item.price = '100'
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is from 300yen to 9999999yen')
       end
 
       it 'priceが300円から9999999円でない時' do
-        @item.price = '10000000'
+        @item.price = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is from 300yen to 9999999yen')
       end
@@ -92,7 +92,7 @@ describe Item do
       end
 
       it 'priceが全角数字の時' do
-        @item.price = '１９９９'
+        @item.price = １９９９
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is not number')
       end
