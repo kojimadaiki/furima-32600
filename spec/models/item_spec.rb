@@ -110,7 +110,7 @@ describe Item do
       end
 
       it 'priceが300円から9999999円でない時' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
         expect(@item.errors.full_messages).to include('Price is from 300yen to 9999999yen')
       end
