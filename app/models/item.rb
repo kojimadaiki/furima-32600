@@ -27,7 +27,7 @@ class Item < ApplicationRecord
   belongs_to :status
   belongs_to :delivery_fee
   belongs_to :prefecture
-  belongs_to :shipping
+  belongs_to :shipping_date
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
