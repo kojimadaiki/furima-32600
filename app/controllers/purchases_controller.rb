@@ -5,9 +5,6 @@ class PurchasesController < ApplicationController
     @item = Item.find(params[:item_id])
     sold_out_item
     @purchase_address = PurchaseAddress.new
-    if current_user.id == @item.user_id
-      redirect_to root_path
-    end
   end
 
   def create
