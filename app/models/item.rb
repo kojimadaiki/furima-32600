@@ -7,7 +7,7 @@ class Item < ApplicationRecord
     validates :delivery_fee_id
     validates :prefecture_id
     validates :shipping_date_id
-    validates :price, numericality: { only_integer: true, message: 'is not number' }
+    validates :price, numericality: { only_integer: true, message: 'が数字ではありません' }
   end
 
   has_one_attached :image
@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     if image.attached?
       errors.add(:image, 'にはjpegまたはpngファイルを添付してください') unless image.content_type.in?(%('image/jpeg image/png'))
     else
-      errors.add(:image, "can't be blank")
+      errors.add(:image, "入力してください")
     end
   end
 
@@ -38,5 +38,5 @@ class Item < ApplicationRecord
     validates :shipping_date_id
   end
 
-  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is from 300yen to 9999999yen' }
+  validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は300円から9999999円までです' }
 end

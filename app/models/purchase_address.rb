@@ -6,8 +6,8 @@ class PurchaseAddress
     validates :municipality
     validates :address_number
     validates :prefecture_id, numericality: { other_than: 1 }
-    validates :telephone_number, format: { with:/\A\d{10,11}\z/, message: 'must up to 11 characters without hyphens' }
-    validates :postal_code, format: { with:/\A\d{3}[-]\d{4}\z/, message: 'must be 7 characters including hyphen' }
+    validates :telephone_number, format: { with:/\A\d{10,11}\z/, message: 'はハイフンを含まない11字以内です' }
+    validates :postal_code, format: { with:/\A\d{3}[-]\d{4}\z/, message: 'はハイフンを含む7文字です' }
 
     validates :user_id
     validates :item_id
