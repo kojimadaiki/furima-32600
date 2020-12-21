@@ -4,6 +4,7 @@ class PurchasesController < ApplicationController
   def index
     @item = Item.find(params[:item_id])
     sold_out_item
+    return
     @purchase_address = PurchaseAddress.new
     if current_user.id == @item.user_id
       redirect_to root_path
@@ -38,6 +39,6 @@ class PurchasesController < ApplicationController
   end
 
   def sold_out_item
-    redirect_to root_path if @item.purchase.present?
-   end
+    redirect_to item_path(@item) if @item.purchase.present?
+  end
 end

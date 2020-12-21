@@ -23,6 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    sold_out_item
     unless current_user.id == @item.user_id
       redirect_to root_path
     end
@@ -53,5 +54,9 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def sold_out_item
+    redirect_to root_path if @item.purchase.present?
   end
 end
