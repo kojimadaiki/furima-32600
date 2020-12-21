@@ -13,6 +13,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   validate :image_presence
   belongs_to :user
+  has_one :purchase
 
   def image_presence
     if image.attached?
